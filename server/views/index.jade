@@ -1,0 +1,31 @@
+extends layout
+
+block content
+
+	div.row
+		div.col-md-8.col-md-offset-2
+			h1= title
+			
+			if errorMessage
+				.alert.alert-info #{errorMessage}
+			
+			ul.list-group
+				li.list-group-item
+					form(action="/add", method="post")
+						.input-group
+							input.form-control(placeholder="Add new todo", name="title")
+							span.input-group-btn
+								input.btn-default.btn(type="submit", value="add")
+				
+				each todo in todos
+					include ./partials/todo.jade
+						
+			table.table.table-bordered
+				tr
+					td.col-md-4 
+						a(href='/all') All
+					td.col-md-4
+						a(href='/active') Active
+					td.col-md-4
+						a(href='/completed') Completed
+

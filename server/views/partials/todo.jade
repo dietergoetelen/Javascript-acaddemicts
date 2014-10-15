@@ -1,0 +1,13 @@
+li.list-group-item
+	form(action="/update", method="post")
+		input(type="hidden", value="#{todo.id}", name="id")
+		input(type="hidden", value="#{!todo.done}", name="done")
+
+		button.btn.btn-default.btn-sm(type="submit")
+
+			if todo.done
+				span.glyphicon.glyphicon-remove
+			else
+				span.glyphicon.glyphicon-ok
+
+		span(style='margin-left: 10px') #{ todo.title }
