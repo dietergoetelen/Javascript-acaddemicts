@@ -1,3 +1,5 @@
+'use strict';
+
 var todoLogic = require('../logic/todoLogic');
 
 module.exports.all = function (req, res) {

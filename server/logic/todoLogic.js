@@ -1,3 +1,5 @@
+'use strict';
+
 var todos = [
 	{
 		id: 1,
