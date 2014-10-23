@@ -1,9 +1,9 @@
-li.list-group-item
+li.list-group-item.todo-item(data-todo-item="#{todo.id}")
 	form(action="/update", method="post")
 		input(type="hidden", value="#{todo.id}", name="id")
 		input(type="hidden", value="#{!todo.done}", name="done")
 
-		button.btn.btn-default.btn-sm(type="submit")
+		button.btn.btn-default.btn-sm(type="submit", data-todo-item-update="#{!todo.done}")
 
 			if todo.done
 				span.glyphicon.glyphicon-remove

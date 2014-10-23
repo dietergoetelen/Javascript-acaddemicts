@@ -4,18 +4,18 @@ block content
 
 	div.row
 		div.col-md-8.col-md-offset-2
-			h1= title
+			h1(data-todo-title)= title
 			
 			if errorMessage
 				.alert.alert-info #{errorMessage}
 			
-			ul.list-group
+			ul.list-group(data-todo-container)
 				li.list-group-item
 					form(action="/add", method="post")
 						.input-group
-							input.form-control(placeholder="Add new todo", name="title")
+							input.form-control(placeholder="Add new todo", name="title", type="text", data-todo-input)
 							span.input-group-btn
-								input.btn-default.btn(type="submit", value="add")
+								input.btn-default.btn(type="submit", value="add", data-todo-new)
 				
 				each todo in todos
 					include ./partials/todo.jade
@@ -23,9 +23,9 @@ block content
 			table.table.table-bordered
 				tr
 					td.col-md-4 
-						a(href='/all') All
+						a(href='/all', data-nav-status="all") All
 					td.col-md-4
-						a(href='/active') Active
+						a(href='/active', data-nav-status="active") Active
 					td.col-md-4
-						a(href='/completed') Completed
+						a(href='/completed', data-nav-status="completed") Completed
 

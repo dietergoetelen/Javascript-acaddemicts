@@ -1,0 +1,9 @@
+li.list-group-item.todo-item(data-todo-item="{{ id }}") 
+	{{#if done}}
+	button.btn.btn-default.btn-sm(type="submit", data-todo-item-update="false")
+		span.glyphicon.glyphicon-remove
+	{{else}}
+	button.btn.btn-default.btn-sm(type="submit", data-todo-item-update="true")
+		span.glyphicon.glyphicon-ok
+	{{/if}}
+	span(style="margin-left: 10px") {{ title }}
